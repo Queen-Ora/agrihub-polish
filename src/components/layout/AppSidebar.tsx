@@ -26,7 +26,7 @@ const mainNavItems = [
   {
     title: "Tableau de bord",
     icon: LayoutDashboard,
-    href: "/",
+    href: "/dashboard",
   },
   {
     title: "Produits",
@@ -72,7 +72,7 @@ export function AppSidebar({ className }: AppSidebarProps) {
   const { isCollapsed, isMobileOpen, toggleCollapse, toggleMobile, closeMobile } = useSidebar();
 
   const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
+    if (href === "/dashboard") return location.pathname === "/dashboard";
     return location.pathname.startsWith(href);
   };
 
