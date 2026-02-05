@@ -7,10 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 const Connexion = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { signIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -26,7 +28,6 @@ const Connexion = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Validation simple
     if (!formData.email || !formData.password) {
       toast({
         title: "Erreur",
@@ -37,15 +38,23 @@ const Connexion = () => {
       return;
     }
 
-    // Simulation de connexion (à remplacer par une vraie API)
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const { error } = await signIn(formData.email, formData.password);
+
+    if (error) {
+      toast({
+        title: "Erreur de connexion",
+        description: error.message,
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
 
     toast({
       title: "Connexion réussie !",
       description: "Bienvenue sur AgriHub",
     });
 
-    // Redirection vers le dashboard
     navigate("/dashboard");
   };
 
