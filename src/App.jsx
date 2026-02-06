@@ -1,7 +1,7 @@
 
 import { createBrowserRouter, RouterProvider, } from 'react-router-dom'
 import Home from './pages/Home.jsx'
-import Inscription from './components/inscription.jsx'
+import Inscription from './components/Inscription.jsx'
 import LirePlus from './pages/LirePlus.jsx'
 import HomeLayout from './components/layout/HomeLayout.jsx'
 import HeaderTop from './components/layout/HeaderTop.jsx'
