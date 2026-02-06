@@ -1,0 +1,66 @@
+
+/* .logo{
+    text-align: center;
+    padding: 20px;
+    color: orangered;
+    align-items: center;
+    display: flex;
+    gap: 20px;
+} */
+
+
+.menu--list{
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+    background-color: whitesmoke;
+    width: 100%;
+    color: orange;
+
+
+}
+
+.menu--list .item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size:1.1rem ;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    
+
+    
+
+}
+
+.menu--list .item:hover{
+    background-color: gray;
+    color: orange;
+}
+.avatar{
+    padding: 10px;
+    border-bottom: 2px solid gray; 
+
+    
+    display: flex;
+    align-items: center;
+   
+    
+}
+.avatar-icon{
+    width: 50%;
+    font-size: 100px;
+}
+.avatar-name{
+    color: rgb(38, 18, 65);
+}
+.divider{
+    color:rgb(150, 140, 140);
+    /* z-index: 100; */
+  border: 2px solid; 
+    width: 100%;
+    
+}

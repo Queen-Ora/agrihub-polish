@@ -1,0 +1,16 @@
+.logo{
+    padding: 0px;
+    margin: 0px;
+
+}
+.logo h1 {
+    color: green;
+     padding: 0px;
+    margin: 0px;
+}
+.logo a {
+    text-decoration: none;
+}
+.agri{
+    color: orange;
+}
