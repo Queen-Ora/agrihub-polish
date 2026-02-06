@@ -303,8 +303,18 @@ Version:	1.1
 		/*====================
 			Google Maps JS
 		======================*/
-		if (typeof GMaps !== 'undefined' && document.getElementById('map')) {
-			var map = new GMaps({
+		(function () {
+			var mapEl = document.getElementById('map');
+			var GMapsLib = window.GMaps;
+
+			// If the map container isn't present OR the GMaps script isn't loaded,
+			// skip initialization safely (prevents blank screen).
+			if (!mapEl || !GMapsLib) {
+				return;
+			}
+
+			try {
+				var map = new GMapsLib({
 					el: '#map',
 					lat: 23.011245,
 					lng: 90.884780,
@@ -315,10 +325,15 @@ Version:	1.1
 					lng: 90.884780,
 					title: 'Marker with InfoWindow',
 					infoWindow: {
-					content: '<p>welcome to Medipro</p>'
+						content: '<p>welcome to Medipro</p>'
+					}
+				});
+			} catch (e) {
+				if (window.console && console.warn) {
+					console.warn('Google Maps initialization skipped:', e);
 				}
-			});
-		}
+			}
+		})();
 	});
 	
 	/*====================
